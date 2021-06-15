@@ -1,0 +1,46 @@
+/* package codechef; // don't place package name! */
+
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+class Codechef
+{
+    
+    public static void tower(LinkedList list){
+        int max = 1;
+        int element;
+        ListIterator it = list.listIterator(0); 
+        Object maxObj = it;
+        
+        while(it.hasNext()) {
+            element = (Integer) it.next();
+            if(max < element){
+                max = element;
+                maxObj = it;
+            }
+        }
+        System.out.println("max: " + max);
+        if (list.remove(maxObj))
+            System.out.println("rem");
+        System.out.print("after removing: ");
+        System.out.println(list);
+        
+        // tower(list);
+    }
+    
+	public static void main (String[] args) throws java.lang.Exception
+	{
+		// your code goes here
+	    LinkedList<Integer> list = new LinkedList<>();
+	    list.add(5);
+	    list.add(15);
+	    list.add(12);
+	    list.add(2);
+	    list.add(4);
+	    ListIterator it = list.listIterator(0); // currently points to head
+	    System.out.println(list);
+        tower(list);
+	}
+}
